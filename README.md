@@ -25,7 +25,7 @@ STEP 6: Use zscore of to remove outliers
             Developed by: Sathish R
             Regno: 212222100048
 ```
-# 1) Read and display DataFrame
+## 1) Read and display DataFrame
 ```py
 import pandas as pd
 df=pd.read_csv('/content/SAMPLEDS.csv')
@@ -117,7 +117,7 @@ df
 ## OUTPUT:
 ![Output](Op12-ds1.png)
 
-### 14) Outlier detection and removal
+## 14) Outlier detection and removal
 ```Python
 import pandas as pd
 import seaborn as sns
@@ -126,29 +126,29 @@ dff=pd.DataFrame(age)
 dff
 ```
               
-#### OUTPUT:
+## OUTPUT:
 
 ![image](o1.png)
-### 15) Boxplot
+## 15) Boxplot
 ```Python
 dsf=sns.boxplot(dff)
 ```
      
-#### OUTPUT:
+## OUTPUT:
 
 ![image](o2.png)
 
 
-### 16) Scatterplot
+## 16) Scatterplot
 ```Python
 dsf=sns.scatterplot(dff)
 ```
-   #### OUTPUT:
+   ## OUTPUT:
 
 ![image](o3.png)
 
 
-### 17) IQR
+## 17) IQR
 ```Python
 q1=dff.quantile(0.25)
 q2=dff.quantile(0.5)
@@ -158,54 +158,54 @@ iqr
 ```
 
               
-#### OUTPUT:
+## OUTPUT:
 
 ![image](o4.png)
 
     
-### 18) Checking the high and low value
+## 18) Checking the high and low value
 ```Python
 low=q1-1.5*iqr
 low
 high=q3+1.5*iqr
 high
 ```
-#### OUTPUT:
+## OUTPUT:
 
 ![image](o5a.png)
 
 ![image](o5b.png)
     
-### 19) Filtering outlier value
+## 19) Filtering outlier value
 ```Python
 dff=dff[((dff>=low)&(dff<=high))]
 dff
 ```
      
-#### OUTPUT:
+## OUTPUT:
 
 ![image](o6.png)
     
-### 20) Dropping the null value
+## 20) Dropping the null value
 ```Python
 dff.dropna()
 ```
 
               
-#### OUTPUT:
+## OUTPUT:
 
 ![image](o7.png)
-### 21) Box plotting after filtering outlier
+## 21) Box plotting after filtering outlier
 ```Python
 sns.boxplot(data=dff)
 ```
      
-#### OUTPUT:
+## OUTPUT:
 
 ![image](o8.png)
 
   
-### 22) Z Score
+## 22) Z Score
 ```Python
 import pandas as pd
 import seaborn as sns
@@ -216,10 +216,10 @@ ds=pd.DataFrame(data)
 ds
 ```
  
-#### OUTPUT:
+## OUTPUT:
 
 ![image](o9.png)
-### 23) Z Score
+## 23) Z Score
 ```Python
 import pandas as pd
 import seaborn as sns
@@ -230,34 +230,35 @@ ds=pd.DataFrame(data)
 ds
 ```
 
-#### OUTPUT:
+## OUTPUT:
 
 ![image](o10.png)
     
-### 24) Z Score
+## 24) Z Score
 ```Python
 sns.boxplot(data=ds)
 ```
 
               
-#### OUTPUT:
+## OUTPUT:
 ![image](o11.png)
     
- ### 25) Z Score
+ ## 25) Z Score
 ```Python
 z=np.abs(stats.zscore(ds))
 z
 ```
    
-#### OUTPUT:
+## OUTPUT:
 ![image](o12.png)
-### 26)Z score 
+
+## 26)Z score 
 ```Python
 print(ds[z['weight']>3])
 ```
 
 
-#### OUTPUT:
+## OUTPUT:
 ![image](o13.png)
 
 ## Result
