@@ -117,6 +117,149 @@ df
 ## OUTPUT:
 ![Output](Op12-ds1.png)
 
+### 14) Outlier detection and removal
+```Python
+import pandas as pd
+import seaborn as sns
+age=[1,3,28,27,25,92,30,39,40,50,26,24,29,94]
+dff=pd.DataFrame(age)
+dff
+```
+              
+#### OUTPUT:
+
+![image](o1.png)
+### 15) Boxplot
+```Python
+dsf=sns.boxplot(dff)
+```
+     
+#### OUTPUT:
+
+![image](o2.png)
+
+
+### 16) Scatterplot
+```Python
+dsf=sns.scatterplot(dff)
+```
+   #### OUTPUT:
+
+![image](o3.png)
+
+
+### 17) IQR
+```Python
+q1=dff.quantile(0.25)
+q2=dff.quantile(0.5)
+q3=dff.quantile(0.75)
+iqr=q3-q1
+iqr
+```
+
+              
+#### OUTPUT:
+
+![image](o4.png)
+
+    
+### 18) Checking the high and low value
+```Python
+low=q1-1.5*iqr
+low
+high=q3+1.5*iqr
+high
+```
+#### OUTPUT:
+
+![image](o5a.png)
+
+![image](o5b.png)
+    
+### 19) Filtering outlier value
+```Python
+dff=dff[((dff>=low)&(dff<=high))]
+dff
+```
+     
+#### OUTPUT:
+
+![image](o6.png)
+    
+### 20) Dropping the null value
+```Python
+dff.dropna()
+```
+
+              
+#### OUTPUT:
+
+![image](o7.png)
+### 21) Box plotting after filtering outlier
+```Python
+sns.boxplot(data=dff)
+```
+     
+#### OUTPUT:
+
+![image](o8.png)
+
+  
+### 22) Z Score
+```Python
+import pandas as pd
+import seaborn as sns
+import numpy as np
+from scipy import stats
+data={'weight':[12,15,18,21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57,60,63,66,69,202,72, 75, 78, 81, 84, 232, 87, 90, 93,96,99,258]}
+ds=pd.DataFrame(data)
+ds
+```
+ 
+#### OUTPUT:
+
+![image](o9.png)
+### 23) Z Score
+```Python
+import pandas as pd
+import seaborn as sns
+import numpy as np
+from scipy import stats
+data={'weight':[12,15,18,21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57,60,63,66,69,202,72, 75, 78, 81, 84, 232, 87, 90, 93,96,99,258]}
+ds=pd.DataFrame(data)
+ds
+```
+
+#### OUTPUT:
+
+![image](o10.png)
+    
+### 24) Z Score
+```Python
+sns.boxplot(data=ds)
+```
+
+              
+#### OUTPUT:
+![image](o11.png)
+    
+ ### 25) Z Score
+```Python
+z=np.abs(stats.zscore(ds))
+z
+```
+   
+#### OUTPUT:
+![image](o12.png)
+### 26)Z score 
+```Python
+print(ds[z['weight']>3])
+```
+
+
+#### OUTPUT:
+![image](o13.png)
+
 ## Result
 Hence the data was cleaned , outliers were detected and removed.
 
